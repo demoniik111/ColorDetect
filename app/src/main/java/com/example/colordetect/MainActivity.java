@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
                     if ((int)event.getX() >= 0 && (int)event.getY()>=0){
                         bitmap = imageView.getDrawingCache();
+                        Toast.makeText(getApplicationContext(),"Разрешение:" + bitmap.getHeight() + "x" +  bitmap.getWidth(), Toast.LENGTH_SHORT).show();
 
                         int pixel = bitmap.getPixel((int)event.getX() < bitmap.getWidth() ? (int)event.getX() : 0, (int)event.getY() < bitmap.getHeight() ? (int)event.getY() : 0 );
 
